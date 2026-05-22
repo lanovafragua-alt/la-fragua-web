@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forge-950: #080807;
+  --color-forge-900: #11100e;
+  --color-forge-850: #171411;
+  --color-graphite-950: #0c0d0d;
+  --color-graphite-900: #17191a;
+  --color-bone: #f2eadc;
+  --color-ember-100: #ffe2c2;
+  --color-ember-200: #ffc37d;
+  --color-ember-300: #ff9b45;
+  --color-ember-500: #f05d23;
+  --color-oxide-100: #ffd6ca;
+  --color-oxide-300: #c85a3d;
+  --color-oxide-500: #8f321f;
+  --color-gold-100: #f6dfaa;
+  --color-gold-200: #e5be69;
+  --color-gold-300: #d6a64a;
+  --font-sans: var(--font-geist-sans), "Inter", "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  background: #080807;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(240, 93, 35, 0.05), transparent 32rem),
+    #080807;
+  color: #f2eadc;
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(240, 93, 35, 0.36);
+  color: #fff8eb;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.forge-section {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.forge-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(214, 166, 74, 0.09), transparent 24rem),
+    radial-gradient(circle at 86% 44%, rgba(143, 50, 31, 0.12), transparent 28rem);
+}
+
+.surface-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.ascuas-float {
+  animation: ascuas-float 5.8s ease-in-out infinite;
+}
+
+.ember-breath {
+  box-shadow:
+    0 0 24px rgba(240, 93, 35, 0.24),
+    inset 0 0 18px rgba(255, 155, 69, 0.18);
+  animation: ember-breath 4.6s ease-in-out infinite;
+}
+
+@keyframes ascuas-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ember-breath {
+  0%,
+  100% {
+    filter: saturate(1);
+  }
+  50% {
+    filter: saturate(1.16) brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascuas-float,
+  .ember-breath {
+    animation: none;
+  }
+}
