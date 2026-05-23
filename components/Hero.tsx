@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import type { ReactNode } from "react";
 
 type HeroCta = {
   label: string;
@@ -15,6 +16,7 @@ type HeroProps = {
   primaryCta?: HeroCta;
   secondaryCta?: HeroCta;
   imageSrc?: string;
+  backdrop?: ReactNode;
   variant?: "home" | "page";
 };
 
@@ -26,18 +28,23 @@ export function Hero({
   primaryCta,
   secondaryCta,
   imageSrc,
+  backdrop,
   variant = "page",
 }: HeroProps) {
   const isHome = variant === "home";
 
   return (
     <section
-      className={`relative isolate overflow-hidden border-b border-white/10 ${
+      data-ascuas-interactive-hero={backdrop ? "" : undefined}
+      className={`relative isolate overflow-hidden border-b border-white/10 bg-forge-950 ${
+        backdrop ? "ascuas-hero-surface" : ""
+      } ${
         isHome
           ? "min-h-[clamp(500px,calc(100svh-220px),760px)]"
           : "min-h-[420px]"
       }`}
     >
+      {backdrop}
       {imageSrc ? (
         <Image
           src={imageSrc}
@@ -49,9 +56,9 @@ export function Hero({
         />
       ) : null}
 
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,7,0.94)_0%,rgba(8,8,7,0.74)_42%,rgba(8,8,7,0.35)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_70%,rgba(240,93,35,0.22),transparent_32%),radial-gradient(circle_at_82%_18%,rgba(214,166,74,0.16),transparent_28%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forge-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,7,0.94)_0%,rgba(8,8,7,0.74)_42%,rgba(8,8,7,0.35)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_70%,rgba(240,93,35,0.22),transparent_32%),radial-gradient(circle_at_82%_18%,rgba(214,166,74,0.16),transparent_28%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forge-950 to-transparent" />
 
       <div className="relative mx-auto flex max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[inherit] lg:items-center lg:py-24">
         <div className="max-w-3xl">
