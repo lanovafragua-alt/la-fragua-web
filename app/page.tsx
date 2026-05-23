@@ -1,4 +1,5 @@
 import { FeatureCard } from "@/components/FeatureCard";
+import { AscuasHeroBackdrop } from "@/components/AscuasHeroBackdrop";
 import { Hero } from "@/components/Hero";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { ProductSpotlight } from "@/components/ProductSpotlight";
@@ -9,7 +10,7 @@ export default function Home() {
     <>
       <Hero
         variant="home"
-        imageSrc="/images/hero-forge-lab.png"
+        backdrop={<AscuasHeroBackdrop />}
         eyebrow="Marca-laboratorio"
         title="Donde las ideas toman forma."
         subtitle="La chispa es la idea. La forma es el trabajo."
