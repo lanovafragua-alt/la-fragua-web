@@ -89,6 +89,29 @@ textarea {
   display: none;
 }
 
+.ascuas-canvas {
+  display: block;
+  touch-action: pan-y;
+}
+
+.ascuas-hero-surface {
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.ascuas-hero-surface[data-dragging="true"] {
+  cursor: grabbing;
+}
+
+.ascuas-hero-surface a,
+.ascuas-hero-surface button {
+  cursor: pointer;
+}
+
+.immersive-copy {
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.82);
+}
+
 .ascuas-float {
   animation: ascuas-float 5.8s ease-in-out infinite;
 }
