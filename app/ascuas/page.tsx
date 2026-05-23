@@ -88,8 +88,8 @@ export default function AscuasPage() {
             description="La primera línea física de Ascuas convierte el personaje y su energía en un objeto de luz: una llama translúcida, cálida y fabricada capa a capa."
             imageSrc="/images/ascuas-lamp-hero.png"
             imageAlt="Lámpara Ascuas encendida"
-            href="/productos"
-            ctaLabel="Ver producto"
+            href="/experimento-ascuas"
+            ctaLabel="Entrar en la experiencia 3D"
             reverse
             details={ascuasLampDetails}
           />
