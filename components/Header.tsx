@@ -1,8 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Flame } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { routes } from "@/lib/site";
 
 export function Header() {
+  const pathname = usePathname();
+
+  if (pathname === "/experimento-ascuas" || pathname === "/experimento-ascuas/") {
+    return null;
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-forge-950/82 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 sm:px-8">
