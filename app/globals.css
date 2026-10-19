@@ -116,6 +116,50 @@ textarea {
   transform: rotateY(180deg);
 }
 
+html:has(.storefront-page),
+body:has(.storefront-page) {
+  color-scheme: light;
+  background: #fff;
+  color: #09090b;
+}
+
+body:has(.storefront-page) .site-footer {
+  border-color: #e4e4e7;
+  background: #fff;
+}
+
+body:has(.storefront-page) .site-footer > div {
+  color: #09090b;
+}
+
+body:has(.storefront-page) .site-footer p,
+body:has(.storefront-page) .site-footer a {
+  color: #52525b;
+}
+
+body:has(.storefront-page) .site-footer a:hover {
+  color: #09090b;
+}
+
+body:has(.storefront-page) .site-footer img {
+  filter: brightness(0);
+}
+
+.storefront-product-flip {
+  transform-style: preserve-3d;
+  transition: transform 550ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.storefront-product-flip[data-flipped="true"],
+.storefront-product-back {
+  transform: rotateY(180deg);
+}
+
+.storefront-product-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 .decision-card-shell {
   animation: card-drift 7s ease-in-out infinite;
 }
@@ -258,6 +302,14 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .storefront-product-flip {
+    transition: none;
+  }
+
+  .storefront-product-link:hover .storefront-product-flip {
+    transform: none;
+  }
+
   .ascuas-float,
   .ember-breath,
   .decision-card-inner,

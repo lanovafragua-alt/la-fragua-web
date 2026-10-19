@@ -3,7 +3,6 @@ import Image from "next/image";
 import {
   ArrowDown,
   ArrowUp,
-  BadgePercent,
   ExternalLink,
   Flame,
   Mail,
@@ -14,7 +13,6 @@ import {
   Truck,
 } from "lucide-react";
 import { AscuasProductGallery } from "@/components/AscuasProductGallery";
-import { AscuasProductModel } from "@/components/AscuasProductModel";
 import { ProductAnalytics } from "@/components/ProductAnalytics";
 import { PurchaseLeadForm } from "@/components/PurchaseLeadForm";
 import {
@@ -66,7 +64,7 @@ const ascuasContactLinks = [
 export const metadata: Metadata = {
   title: "Lámpara Ascuas",
   description:
-    "Compra la Lámpara Ascuas de La Fragua: oferta de lanzamiento 39,90€, envío incluido por Nacex y seguimiento 24/48h.",
+    "Compra la Lámpara Ascuas de La Fragua: 39,90 € + envío. Luz cálida y diseño propio para tu escritorio o para regalar. Fabricación aproximada de tres días.",
 };
 
 export default function AscuasPage() {
@@ -76,6 +74,28 @@ export default function AscuasPage() {
       className="product-spark-field relative isolate overflow-hidden text-zinc-950"
     >
       <ProductAnalytics product={ascuasProduct.name} />
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:hidden">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ember-500">
+          Lámpara Ascuas · La Fragua
+        </p>
+        <p className="mt-2 text-3xl font-semibold text-zinc-950">
+          Enciende tu rincón.
+        </p>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-lg font-semibold">
+            {ascuasProduct.launchPrice}{" "}
+            <span className="text-sm font-normal text-zinc-600">+ envío</span>
+          </p>
+          <a
+            href="#pedido"
+            className="shrink-0 rounded-full bg-ember-500 px-4 py-3 text-sm font-semibold text-white"
+            data-analytics-event="purchase_intent"
+            data-analytics-placement="mobile_intro"
+          >
+            Quiero mi Ascuas
+          </a>
+        </div>
+      </div>
       <section className="relative mx-auto grid max-w-7xl gap-7 px-4 pb-10 pt-5 sm:px-6 lg:grid-cols-[minmax(0,1.06fr)_minmax(360px,0.7fr)] lg:gap-10 lg:px-8 lg:pb-16 lg:pt-8">
         <div>
           <AscuasProductGallery items={ascuasProductGallery} />
@@ -86,7 +106,7 @@ export default function AscuasPage() {
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-ember-500/20 bg-ember-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ember-500">
                 <Flame className="size-3.5" aria-hidden="true" />
-                Producto 01
+                Luz decorativa
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-zinc-950/10 bg-zinc-950/[0.04] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600">
                 <PackageCheck className="size-3.5" aria-hidden="true" />
@@ -103,7 +123,7 @@ export default function AscuasPage() {
 
             <div className="mt-6 overflow-hidden rounded-lg border border-ember-500/18 bg-[#fff4df]">
               <div className="flex items-center gap-2 border-b border-ember-500/12 bg-ember-500/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ember-500">
-                <BadgePercent className="size-4" aria-hidden="true" />
+                <Flame className="size-4" aria-hidden="true" />
                 {ascuasProduct.offerLabel}
               </div>
               <div className="p-4">
@@ -111,16 +131,9 @@ export default function AscuasPage() {
                   <p className="text-5xl font-semibold tracking-tight text-zinc-950">
                     {ascuasProduct.launchPrice}
                   </p>
-                  <p className="pb-1 text-lg font-medium text-zinc-500 line-through">
-                    {ascuasProduct.officialPrice}
-                  </p>
                 </div>
                 <p className="mt-3 text-sm font-semibold text-zinc-800">
                   {ascuasProduct.offerNote}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  Después de las 3 primeras unidades, el precio oficial será de{" "}
-                  {ascuasProduct.officialPrice}.
                 </p>
               </div>
             </div>
@@ -136,28 +149,13 @@ export default function AscuasPage() {
               {ascuasProduct.shortDescription}
             </p>
 
-            <div className="mt-5 flex items-center gap-3 rounded-md border border-ember-500/14 bg-ember-500/[0.06] p-3">
-              <span className="grid size-14 shrink-0 place-items-center overflow-hidden rounded-full bg-black">
-                <Image
-                  src="/images/ascuas-guide.png"
-                  alt="Ascuas, guía de La Fragua"
-                  width={112}
-                  height={112}
-                  className="h-full w-full scale-125 object-contain"
-                />
-              </span>
-              <p className="text-sm leading-6 text-zinc-700">
-                Ascuas te enseña la pieza final antes de pasar al pedido.
-              </p>
-            </div>
-
             <a
               href="#pedido"
               data-analytics-event="purchase_intent"
               data-analytics-placement="product_summary"
               className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ember-500 px-5 py-4 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(240,93,35,0.24)] transition hover:bg-ember-300"
             >
-              Comprar ahora
+              Quiero mi Ascuas
               <ArrowDown className="size-4" aria-hidden="true" />
             </a>
 
@@ -202,6 +200,39 @@ export default function AscuasPage() {
           productName={ascuasProduct.name}
           stripeUrl={ascuasProduct.stripeUrl}
         />
+      </section>
+
+      <section className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-semibold">Antes de elegir tu rincón.</h2>
+        <div className="mt-6 divide-y divide-zinc-950/10 rounded-lg border border-zinc-950/10 bg-white px-5">
+          {[
+            [
+              "¿Dónde puedo colocarla?",
+              "En tu escritorio, mesilla o rincón favorito. Ascuas aporta luz cálida y una silueta de llama que también decora cuando está apagada.",
+            ],
+            [
+              "¿Cuánto tarda en fabricarse?",
+              "La fabricación aproximada es de 3 días por unidad. El tiempo de transporte se añade después; no es un plazo de entrega de 3 días.",
+            ],
+            [
+              "¿El envío está incluido?",
+              "No. La lámpara cuesta 39,90 € y los gastos de envío se añaden aparte. Si tienes dudas sobre tu destino, consúltanos antes de pagar.",
+            ],
+            [
+              "¿Tienes alguna duda antes de comprar?",
+              "Escríbenos a lanovafragua@gmail.com y te ayudamos con el producto y el envío.",
+            ],
+          ].map(([question, answer]) => (
+            <details key={question} className="py-5">
+              <summary className="cursor-pointer text-base font-semibold">
+                {question}
+              </summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-600">
+                {answer}
+              </p>
+            </details>
+          ))}
+        </div>
       </section>
 
       <section className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
@@ -254,18 +285,6 @@ export default function AscuasPage() {
             Volver arriba
             <ArrowUp className="size-4" aria-hidden="true" />
           </a>
-        </div>
-
-        <div id="modelo-3d" className="mt-8 scroll-mt-24">
-          <div className="mb-5 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ember-500">
-              Objeto 3D
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight text-zinc-950 sm:text-4xl">
-              Ascuas dentro de la propia página.
-            </h2>
-          </div>
-          <AscuasProductModel />
         </div>
 
         <div className="mt-12 rounded-lg border border-zinc-950/10 bg-white/80 p-5 shadow-[0_18px_60px_rgba(24,20,12,0.07)] backdrop-blur sm:p-6">

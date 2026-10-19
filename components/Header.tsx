@@ -14,7 +14,9 @@ export function Header() {
 
   const normalizedPathname =
     pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  const isStorefront = ["/", "/tienda", "/productos"].includes(normalizedPathname);
   const isLightPage =
+    isStorefront ||
     normalizedPathname === "/ascuas" ||
     normalizedPathname.startsWith("/productos/");
   const buyHref = normalizedPathname === "/ascuas" ? "#pedido" : "/tienda";
@@ -23,7 +25,9 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 border-b backdrop-blur-xl ${
-        isLightPage
+        isStorefront
+          ? "border-zinc-200 bg-white/95 text-zinc-950"
+          : isLightPage
           ? "border-zinc-950/10 bg-[#fffaf1]/88 text-zinc-950"
           : "border-white/10 bg-forge-950/86 text-bone"
       }`}

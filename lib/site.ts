@@ -102,19 +102,19 @@ export const contactLinks = [
 ] as const;
 
 export const shopPromises = [
-  "Envío incluido en todos los precios.",
+  "Consulta el envío en cada ficha.",
   "Salida por Nacex con seguimiento.",
   "Preparación habitual en 24/48 horas si la pieza está lista.",
 ] as const;
 
 export const ascuasProduct = {
   name: "Lámpara Ascuas",
-  subtitle: "Una brasa de escritorio fabricada capa a capa.",
+  subtitle: "Enciende tu rincón con una luz que tiene carácter.",
   officialPrice: "60€",
   launchPrice: "39,90€",
-  offerLabel: "Oferta primeras 3 unidades",
-  offerNote: "Gastos de envío incluidos",
-  shipping: "Envío 24/48h con número de seguimiento por Nacex.",
+  offerLabel: "Diseño de La Fragua",
+  offerNote: "39,90 € + gastos de envío",
+  shipping: "Fabricación aproximada: 3 días por unidad. El transporte se añade a ese plazo. Gastos de envío aparte.",
   shortDescription:
     "Luz cálida, cuerpo translúcido y presencia de objeto ritual. Ascuas nace para que una mesa deje de sentirse apagada.",
   description:
@@ -380,8 +380,7 @@ const catalogProductData = [
     summary:
       "Lámpara translúcida con núcleo cálido, base negra y presencia de pieza de autor.",
     price: "39,90€",
-    compareAtPrice: "60€",
-    badge: "Primeras 3 unidades",
+    badge: "Diseño propio",
     href: "/ascuas",
     purchaseHref: "/ascuas#pedido",
     purchaseLabel: "Comprar Ascuas",
@@ -389,8 +388,8 @@ const catalogProductData = [
     imageAlt: ascuasCatalogImage.alt,
     gallery: ascuasCatalogGallery,
     tone: "ember",
-    shipping: "Envío incluido por Nacex con seguimiento 24/48h.",
-    prepTime: "Listo para preparar pedido.",
+    shipping: "39,90 € + envío.",
+    prepTime: "Fabricación aproximada: 3 días por unidad.",
     details: [
       "Cuerpo exterior rojo translúcido.",
       "Núcleo interior cálido con efecto de brasa.",
@@ -638,13 +637,10 @@ export const productBySlug = (slug: string) =>
 export const ascuasProductGallery = ascuasCatalogGallery;
 
 export const ascuasProductDetails = [
-  "Oferta de lanzamiento: 39,90€ para las 3 primeras unidades.",
-  "Precio oficial después de la oferta: 60€.",
-  "Gastos de envío incluidos en la oferta.",
-  "Envío 24/48h con número de seguimiento por Nacex.",
   "Envoltura roja translúcida con forma orgánica de llama.",
-  "Núcleo interior cálido para un efecto de brasa encendida.",
+  "Núcleo interior de luz cálida con efecto de brasa.",
   "Base negra con botón frontal iluminado.",
+  "Diseñada e impresa en 3D por La Fragua.",
 ] as const;
 
 export const ascuasProcessBlocks = [

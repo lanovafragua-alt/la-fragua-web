@@ -4,7 +4,7 @@ import { contact, contactLinks, routes } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-graphite-950">
+    <footer className="site-footer border-t border-white/10 bg-graphite-950">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 text-bone sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
         <div>
           <div className="flex items-center gap-3">
