@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { contact, contactLinks, routes } from "@/lib/site";
+import { AdvertisingPreferencesButton } from "@/components/AdvertisingConsent";
 
 export function Footer() {
   return (
@@ -64,6 +65,9 @@ export function Footer() {
             <a className="transition hover:text-bone" href={contact.phoneHref}>
               {contact.phone}
             </a>
+          </div>
+          <div className="sm:justify-self-end">
+            <AdvertisingPreferencesButton />
           </div>
         </div>
       </div>

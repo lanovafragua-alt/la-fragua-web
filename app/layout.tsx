@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AscuasGuide } from "@/components/AscuasGuide";
 import { PostHogAnalytics } from "@/components/PostHogAnalytics";
+import { MetaPixel } from "@/components/MetaPixel";
+import { AdvertisingConsentBanner } from "@/components/AdvertisingConsent";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -25,10 +27,12 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <PostHogAnalytics />
+        <MetaPixel />
         <Header />
         <main>{children}</main>
         <AscuasGuide />
         <Footer />
+        <AdvertisingConsentBanner />
       </body>
     </html>
   );

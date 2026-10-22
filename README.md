@@ -24,3 +24,22 @@ pnpm dev
 pnpm build
 pnpm start
 ```
+
+## Meta Pixel
+
+El identificador del pixel es `1836904827504099` y se configura en
+`components/MetaPixel.tsx`. No necesita nuevas variables en Netlify.
+
+La biblioteca de Meta se carga solo al aceptar la publicidad. La eleccion se
+recuerda en el navegador y puede cambiarse desde "Preferencias de publicidad"
+en el pie. PostHog conserva su configuracion independiente.
+
+Se registra un `PageView` inicial y otro por cada cambio de ruta de Next.js.
+No se registran compras ni se envian los campos del formulario a Meta.
+Se desactiva la configuracion automatica de eventos para este pixel.
+El seguimiento de visitas se controla desde React para evitar duplicados.
+
+Para comprobarlo tras el despliegue, abre "Probar eventos" en Meta, visita la
+web, acepta la publicidad y navega entre las fichas. La recepcion en Meta debe
+verificarse en ese panel. El bloque `noscript` se omite para que no envie
+visitas sin poder recoger antes la eleccion del visitante.
