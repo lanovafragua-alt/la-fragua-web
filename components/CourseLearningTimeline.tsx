@@ -4,7 +4,7 @@ import { CourseSoftwareLogo, type CourseSoftware } from "@/components/CourseSoft
 import styles from "@/app/curso/curso.module.css";
 
 const workshopImages = [
-  { src: "/images/catalog/soporte-cascos/soporte-cascos-1.jpg", alt: "Soporte para auriculares terminado en el taller de La Fragua", width: 1000, height: 1000 },
+  { src: "/images/catalog/soporte-cascos/soporte-cascos-1.jpg", alt: "Soporte para auriculares terminado en el taller de La Fragua", width: 1129, height: 2000 },
   { src: "/images/ascuas-final/ascuas-detalle-exterior.jpg", alt: "Detalle de la superficie de una pieza Ascuas de La Fragua", width: 1440, height: 2550 },
   { src: "/images/ascuas-final/ascuas-producto-mesa.jpg", alt: "Lámpara Ascuas terminada y encendida sobre una mesa", width: 1440, height: 2550 },
 ];
