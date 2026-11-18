@@ -5,6 +5,7 @@ export const routes = [
   { href: "/tienda", label: "Tienda" },
   { href: "/ascuas", label: "Ascuas" },
   { href: "/focus-mode", label: "Chispa" },
+  { href: "/curso", label: "Curso 3D" },
 ] as const;
 
 export const stripePaymentLinks = {

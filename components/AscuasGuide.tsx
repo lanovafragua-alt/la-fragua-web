@@ -8,6 +8,8 @@ export function AscuasGuide() {
   const pathname = usePathname();
 
   if (
+    pathname === "/curso" ||
+    pathname === "/curso/" ||
     pathname === "/" ||
     pathname === "/experimento-ascuas" ||
     pathname === "/experimento-ascuas/" ||

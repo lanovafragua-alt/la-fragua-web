@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { contact, contactLinks, routes } from "@/lib/site";
 import { AdvertisingPreferencesButton } from "@/components/AdvertisingConsent";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/curso" || pathname === "/curso/") return null;
+
   return (
     <footer className="site-footer border-t border-white/10 bg-graphite-950">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 text-bone sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">

@@ -7,3 +7,9 @@ dist
 .env
 .env.*
 !.env.example
+
+# Notas locales de preparación del curso; no forman parte de la web pública.
+/docs/curso-contexto.md
+/docs/curso-recursos.md
+/docs/curso-imagen-ia.md
+/docs/curso-escena-pedro-ia.md

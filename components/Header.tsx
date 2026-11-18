@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ArrowUpRight } from "lucide-react";
 import { routes } from "@/lib/site";
 
 export function Header() {
@@ -14,6 +15,23 @@ export function Header() {
 
   const normalizedPathname =
     pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  if (normalizedPathname === "/curso") {
+    return (
+      <header className="course-header">
+        <div>
+          <Link href="/" className="course-header-brand" aria-label="La Fragua, inicio">
+            <Image src="/brand/la-fragua-logo-red.png" alt="" width={42} height={42} priority />
+            <span><strong>LA FRAGUA</strong><small>Diseño · creación · formación</small></span>
+          </Link>
+          <nav aria-label="Principal del curso">
+            <a href="#recorrido">El recorrido</a>
+            <a href="#ayuntamientos">Para ayuntamientos</a>
+          </nav>
+          <a href="#informacion" className="course-header-contact">Hablamos <ArrowUpRight size={16} aria-hidden="true" /></a>
+        </div>
+      </header>
+    );
+  }
   const isStorefront = ["/", "/tienda", "/productos"].includes(normalizedPathname);
   const isLightPage =
     isStorefront ||

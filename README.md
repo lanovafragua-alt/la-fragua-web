@@ -10,6 +10,21 @@ Primera versión de la web principal de La Fragua, creada con Next.js, Tailwind 
 - `/focus-mode`
 - `/productos`
 - `/contacto`
+- `/curso`: propuesta de curso municipal de diseño e impresión 3D para 2027.
+
+## Curso municipal
+
+La sección `/curso` tiene un recorrido de diez etapas, indicador de lectura,
+preguntas desplegables y contactos por correo y teléfono. No recoge datos
+mediante formularios ni abre inscripciones.
+
+Los datos del curso se mantienen en `lib/course.ts`; el contenido y los
+estilos están en `app/curso/`. La web no publica importes ni desgloses
+económicos: cada entidad recibirá una propuesta adaptada a su edición.
+Las notas de preparación se conservan en local y se excluyen del repositorio.
+
+La sección se ha revisado con el propietario, quien ha autorizado su
+publicación en `https://lafragua.online/curso/`.
 
 ## Desarrollo
 
