@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Box, Check, CheckCheck, CircleHelp, Lightbulb, Mail, Monitor, PencilRuler, Phone, Printer, Users } from "lucide-react";
@@ -7,12 +6,15 @@ import { CourseLearningTimeline } from "@/components/CourseLearningTimeline";
 import { CourseSoftwareLogo } from "@/components/CourseSoftwareLogo";
 import { AdvertisingPreferencesButton } from "@/components/AdvertisingConsent";
 import { courseEdition, courseFaqs } from "@/lib/course";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./curso.module.css";
 
-export const metadata: Metadata = {
-  title: courseEdition.name,
+export const metadata = pageMetadata({
+  title: `${courseEdition.name} para ayuntamientos`,
   description: `De una idea a algo real. Conoce la propuesta de formación de La Fragua para ${courseEdition.year}: diseño, impresión 3D y proyectos propios. Información para participantes y ayuntamientos.`,
-};
+  path: "/curso",
+  image: "/images/curso/taller-pedro-adolescentes-ia.png",
+});
 
 const participantMail = `mailto:${courseEdition.contactEmail}?subject=${encodeURIComponent("Información sobre el curso de diseño e impresión 3D")}&body=${encodeURIComponent("Hola, La Fragua.\n\nMe gustaría recibir información sobre el curso.\nMunicipio de interés:\nGrupo de edad (8–12, 13–17 o adultos):\n\nGracias.")}`;
 const councilMail = `mailto:${courseEdition.contactEmail}?subject=${encodeURIComponent("Propuesta de curso para un municipio")}&body=${encodeURIComponent("Hola, La Fragua.\n\nQuerríamos valorar el curso de diseño e impresión 3D.\nAyuntamiento o entidad:\nPersona de contacto:\nNecesidades o recursos disponibles:\n\nGracias.")}`;

@@ -51,6 +51,9 @@ export function Storefront() {
             <p className="mt-2 text-sm text-zinc-600 sm:text-base">
               Objetos con fuego propio.
             </p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-600">
+              Lámparas, accesorios gaming y decoración impresa en 3D.
+            </p>
           </div>
           <a href={contact.etsy} target="_blank" rel="noreferrer" className="hidden items-center gap-2 text-sm font-medium text-zinc-600 transition hover:text-zinc-950 sm:inline-flex">
             También en Etsy
@@ -125,7 +128,8 @@ export function Storefront() {
           <div>
             <h2 className="text-2xl font-semibold">¿Tienes una idea propia?</h2>
             <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-600">
-              Una lámpara personalizada, una pieza a medida o ese proyecto que tienes en mente.
+              Diseño e impresión 3D a medida: lámparas personalizadas, prototipos
+              y piezas para ese proyecto que tienes en mente.
             </p>
           </div>
           <a href={customProjectHref} className="inline-flex shrink-0 items-center gap-2 rounded-md bg-zinc-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-ember-500">

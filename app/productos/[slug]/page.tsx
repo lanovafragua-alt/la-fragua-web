@@ -14,6 +14,8 @@ import {
 import { CatalogContact } from "@/components/CatalogContact";
 import { ProductAnalytics } from "@/components/ProductAnalytics";
 import { ProductVisual } from "@/components/ProductVisual";
+import { StructuredData } from "@/components/StructuredData";
+import { productMetadata, productStructuredData } from "@/lib/seo";
 import { catalogProducts, productBySlug } from "@/lib/site";
 
 type ProductPageProps = {
@@ -38,10 +40,7 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: product.name,
-    description: product.summary,
-  };
+  return productMetadata(product);
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
@@ -59,6 +58,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="product-spark-field relative isolate overflow-hidden text-zinc-950">
+      <StructuredData data={productStructuredData(product)} />
       <ProductAnalytics product={product.name} />
       <section className="relative mx-auto grid max-w-7xl gap-8 px-4 pb-10 pt-5 sm:px-6 lg:grid-cols-[minmax(0,1.02fr)_minmax(360px,0.72fr)] lg:gap-10 lg:px-8 lg:pb-16 lg:pt-8">
         <div>

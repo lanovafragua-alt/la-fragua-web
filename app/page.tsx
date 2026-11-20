@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import { Storefront } from "@/components/Storefront";
+import { StructuredData } from "@/components/StructuredData";
+import { catalogMetadata, catalogStructuredData } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "La Fragua | Tienda",
-  description:
-    "Compra lámparas, accesorios gaming y decoración de La Fragua. Diseño propio, fabricación en 3D y encargos personalizados.",
-};
+export const metadata = catalogMetadata;
 
 export default function Home() {
-  return <Storefront />;
+  return <><StructuredData data={catalogStructuredData()} /><Storefront /></>;
 }

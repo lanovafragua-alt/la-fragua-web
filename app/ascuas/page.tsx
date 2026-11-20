@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowDown,
@@ -15,11 +14,14 @@ import {
 import { AscuasProductGallery } from "@/components/AscuasProductGallery";
 import { ProductAnalytics } from "@/components/ProductAnalytics";
 import { PurchaseLeadForm } from "@/components/PurchaseLeadForm";
+import { StructuredData } from "@/components/StructuredData";
+import { pageMetadata, productStructuredData } from "@/lib/seo";
 import {
   ascuasProcessBlocks,
   ascuasProduct,
   ascuasProductDetails,
   ascuasProductGallery,
+  productBySlug,
 } from "@/lib/site";
 
 const ascuasContactLinks = [
@@ -61,19 +63,22 @@ const ascuasContactLinks = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: "Lámpara Ascuas",
+export const metadata = pageMetadata({
+  title: "Lámpara de mesa Ascuas impresa en 3D",
   description:
-    "Compra la Lámpara Ascuas de La Fragua: 39,90 € + envío. Luz cálida y diseño propio para tu escritorio o para regalar. Fabricación aproximada de tres días.",
-};
+    "Lámpara de mesa Ascuas de La Fragua: diseño de llama, luz cálida y fabricación en 3D. 39,90 € más envío por Nacex. Descubre las fotos y pide la tuya.",
+  path: "/ascuas",
+});
 
 export default function AscuasPage() {
+  const product = productBySlug("ascuas");
   return (
     <div
       id="top"
       className="product-spark-field relative isolate overflow-hidden text-zinc-950"
     >
       <ProductAnalytics product={ascuasProduct.name} />
+      {product && <StructuredData data={productStructuredData(product)} />}
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:hidden">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ember-500">
           Lámpara Ascuas · La Fragua

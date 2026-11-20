@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { Storefront } from "@/components/Storefront";
+import { catalogMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tienda",
-  description:
-    "Tienda de La Fragua: lámparas, accesorios gaming, decoración impresa en 3D y encargos personalizados.",
-};
+export const metadata = catalogMetadata;
 
 export default function TiendaPage() {
   return <Storefront />;

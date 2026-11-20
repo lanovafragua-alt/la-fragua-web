@@ -4,18 +4,22 @@ import { Footer } from "@/components/Footer";
 import { AscuasGuide } from "@/components/AscuasGuide";
 import { PostHogAnalytics } from "@/components/PostHogAnalytics";
 import { MetaPixel } from "@/components/MetaPixel";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { AdvertisingConsentBanner } from "@/components/AdvertisingConsent";
+import { StructuredData } from "@/components/StructuredData";
+import { googleSiteVerification } from "@/lib/google";
+import { organizationStructuredData, siteDescription } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "La Fragua | Objetos que toman forma",
+    default: "Lámparas y objetos impresos en 3D | La Fragua",
     template: "%s | La Fragua",
   },
-  description:
-    "La Fragua crea lámparas, accesorios gaming, decoración impresa en 3D y encargos personalizados.",
+  description: siteDescription,
   metadataBase: new URL(siteUrl),
+  verification: { google: googleSiteVerification },
 };
 
 export default function RootLayout({
@@ -26,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <StructuredData data={organizationStructuredData()} />
         <PostHogAnalytics />
+        <GoogleAnalytics />
         <MetaPixel />
         <Header />
         <main>{children}</main>

@@ -1,22 +1,26 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Mail, Radio, Zap } from "lucide-react";
 import { CatalogContact } from "@/components/CatalogContact";
 import { ProductAnalytics } from "@/components/ProductAnalytics";
+import { StructuredData } from "@/components/StructuredData";
+import { pageMetadata, productStructuredData } from "@/lib/seo";
 import { chispaDetails, productBySlug } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Proyecto Chispa",
+export const metadata = pageMetadata({
+  title: "Chispa: dispositivo NFC para concentración",
   description:
-    "Proyecto Chispa es el dispositivo Focus Mode de La Fragua: objeto físico, NFC y ritual de concentración.",
-};
+    "Conoce Proyecto Chispa de La Fragua: un dispositivo de escritorio con NFC para activar tu rutina de concentración. Información y consultas bajo pedido.",
+  path: "/focus-mode",
+  image: "/images/proyecto-chispa-device.png",
+});
 
 export default function FocusModePage() {
   const product = productBySlug("chispa");
 
   return (
     <div className="relative isolate overflow-hidden bg-[#090807] text-bone">
+      {product && <StructuredData data={productStructuredData(product)} />}
       <section className="relative min-h-[calc(100svh-73px)] px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <ProductAnalytics product="Proyecto Chispa" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(214,166,74,0.12),transparent_28rem),radial-gradient(circle_at_14%_84%,rgba(240,93,35,0.1),transparent_24rem)]" />
